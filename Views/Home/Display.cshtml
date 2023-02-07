@@ -1,0 +1,48 @@
+﻿@model List<Auto> 
+@{
+  ViewData["Title"] = "All Cars"; 
+}
+
+<h2>All Cars</h2>
+<p>
+  @Html.ActionLink("Add Auto", "Reg")
+</p>
+<p>
+    <form asp-controller="Home" asp-action="Display" method="post">
+        Brand:<br />
+        <input name="brand" /><br />
+        <br /> 
+        <button type="submit">Found</button>         
+        <br /> 
+        <br /> 
+        <button type="submit" formmethod="get">Reset</button> 
+    </form>
+<table class="table table-bordered table-hover"> 
+    <tr>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Year</th>
+        <th>Price</th>
+        <th></th>
+    </tr>
+  @foreach (var item in Model)
+  {
+          <tr>
+              <td>
+        @Html.DisplayFor(modelItem => item.Brand)
+              </td>
+              <td>
+        @Html.DisplayFor(modelItem => item.Model)
+              </td>
+              <td>
+        @Html.DisplayFor(modelItem => item.Year)
+              </td>
+              <td>
+        @Html.DisplayFor(modelItem => item.Price)
+              </td>
+              <td>
+        @Html.ActionLink("Delete", "DeleteAuto", new { id = item.Id })
+              </td>
+          </tr>
+  } 
+ </table>

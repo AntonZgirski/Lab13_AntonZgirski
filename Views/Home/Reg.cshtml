@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Car Registration";
+}
+
+<form asp-controller="Home" asp-action="Create" method="post">
+    Brand:<br /><input name="brand" /><br />
+    Model:<br /><input name="model" /><br />
+    Year:<br /><input name="year" /><br />
+    Price:<br /><input name="price" /><br />
+    <br /> <button type="submit">Save</button>
+</form>
